@@ -20,9 +20,9 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-      <a onClick={() => dispatch(example())} className={styles.card}>
-            <h2>REDUX TEST {valueExample}</h2>
-          </a>
+        <a onClick={() => dispatch(example())} className={styles.card}>
+          <h2>REDUX TEST {valueExample}</h2>
+        </a>
       </main>
     </div>
   )

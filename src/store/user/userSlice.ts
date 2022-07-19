@@ -7,7 +7,7 @@ const userSlice = createSlice({
     },
     reducers: {
         example: (state) => {
-            state.valueExample = 1;
+            state.valueExample += 1;
         },
         exampleWithAction: (state, action) => {
             state.valueExample = action.payload;
