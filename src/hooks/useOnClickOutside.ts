@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
 /**
  * Custom React hook that detects clicks outside of a specified HTML element.
  */
-const useClickOutside = (ref: React.RefObject<HTMLElement>, onClickOutside: () => void): void => {
+const useClickOutside = (
+  ref: React.RefObject<HTMLElement>,
+  onClickOutside: () => void
+): void => {
   useEffect(() => {
-    const handleEvent = (event) => {
+    const handleEvent = (event: any) => {
       if (!ref.current || ref.current.contains(event.target)) {
         return;
       }
@@ -13,12 +16,12 @@ const useClickOutside = (ref: React.RefObject<HTMLElement>, onClickOutside: () =
       onClickOutside();
     };
 
-    document.addEventListener('mousedown', handleEvent);
-    document.addEventListener('touchstart', handleEvent);
+    document.addEventListener("mousedown", handleEvent);
+    document.addEventListener("touchstart", handleEvent);
 
     return () => {
-      document.removeEventListener('mousedown', handleEvent);
-      document.removeEventListener('touchstart', handleEvent);
+      document.removeEventListener("mousedown", handleEvent);
+      document.removeEventListener("touchstart", handleEvent);
     };
   }, [ref, onClickOutside]);
 };
